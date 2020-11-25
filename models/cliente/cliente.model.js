@@ -1,7 +1,7 @@
 var MongoDB = require("../dbm");
 var ObjectID = require("mongodb").ObjectID;
 
-class ClienteModel {
+class clienteModel {
   constructor() {
     this.collection = null;
     MongoDB.getDb()

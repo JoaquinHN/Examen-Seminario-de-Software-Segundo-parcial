@@ -16,3 +16,17 @@ router.get("/all", async (req, res) => {
     res.status(500).json({ msg: "Algo Paso Mal." });
   }
 });
+
+router.get('/one/:id', async (req, res)=>{
+    try{
+      let { id } = req.params;
+      let oneDocument = await mdbClienteModel.getById(id);
+      res.status(200).json(oneDocument);
+    } catch(ex){
+      console.log(ex);
+      res.status(500).json({ "msg": "Algo Paso Mal." });
+    }
+  });
+
+
+  module.exports = router;
