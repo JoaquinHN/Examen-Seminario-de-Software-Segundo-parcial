@@ -31,7 +31,7 @@ router.get('/one/:id', async (req, res)=>{
   router.post('/new', async (req, res)=>{
     try{
       let {name, email, telefono,producto,pay,status} = req.body;
-      var rslt = await mdbProductModel.addOne({ name, email, telefono,producto,pay,status}); // {sku: sku, name:name, price:price, stock:0}
+      var rslt = await mdbClienteModel.addOne({ name, email, telefono,producto,pay,status}); // {sku: sku, name:name, price:price, stock:0}
       res.status(200).json(rslt);
     }catch(ex){
       console.log(ex);
@@ -44,7 +44,7 @@ router.get('/one/:id', async (req, res)=>{
     try{
       let {id} = req.params;
       let {status} = req.body;
-      let rslt = await mdbProductModel.updateById(id,status);
+      let rslt = await mdbClienteModel.updateById(id,status);
       res.status(200).json(rslt);
     }catch(ex){
       console.log(ex);
